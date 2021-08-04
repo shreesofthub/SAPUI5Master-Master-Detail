@@ -1,0 +1,33 @@
+## Generated mta.yaml based on template version 0.4.0
+## appName = ui527_dynamic_list_binding
+## language=nodejs; multitenant=false
+## approuter=
+_schema-version: '3.1'
+ID: ui527_dynamic_list_binding
+version: 1.0.0
+description: "Dynamic Aggregation Binding in List-2 Mater Pages and detail page"
+parameters:
+  enable-parallel-deployments: true
+   
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install --production
+      - npx -p @sap/cds-dk cds build --production
+
+modules:
+ # --------------------- SERVER MODULE ------------------------
+ - name: ui527_dynamic_list_binding-srv
+ # ------------------------------------------------------------
+   type: nodejs
+   path: .
+   provides:
+    - name: srv-api      # required by consumers of CAP services (e.g. approuter)
+      properties:
+        srv-url: ${default-url}
+
+
+
+
+

@@ -1,0 +1,24 @@
+<mvc:View controllerName="hckt.manifest.controller.detail"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core">
+    <Page id="idTitle" title="Selected {name} Details" showNavButton="true" navButtonPress="onBack">
+        <ObjectHeader icon="{image}" number="{price} Rs" title="{name}"></ObjectHeader>
+        <Panel>
+            <IconTabBar >
+                <items>
+                    <IconTabFilter icon="sap-icon://information" text="{name}-More Information about" key="More Info" count="1">
+                        <core:Fragment fragmentName="hckt.manifest.fragments.moreInfo" type="XML" ></core:Fragment>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://supplier" text="{name}- Suppliers " key="Suppliers Information" count="2">
+                        <core:Fragment fragmentName="hckt.manifest.fragments.supplier" type="XML"></core:Fragment>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://addresses" text="{name}-Available Cities" key="City" count="3">
+                        <core:Fragment fragmentName="hckt.manifest.fragments.city" type="XML"></core:Fragment>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+
+        </Panel>
+    </Page>
+</mvc:View>

@@ -1,0 +1,4 @@
+<mvc:View  xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="hckt.manifest.controller.empty">
+	<Page title="{i18n>empty_tile}">
+	</Page>
+</mvc:View>

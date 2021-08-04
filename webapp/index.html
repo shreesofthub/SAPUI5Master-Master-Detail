@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"UI5 Application using Component.js And Manifest.json"</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Ui5 Application- Component,Manifest,f4Help,filter,google like search,refresh,sort,drop down">
+		<meta name="author" content="sridhar Bollabathula">
+		<meta name="keywords" content="UI5 Application,Fiori">
+	<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/1.91.0/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-resourceroots='{"hckt.manifest":"./"}'
+			data-sap-ui-xx-bindingSyntax="complex">
+	</script>
+	<script>
+		// var oAppView = new sap.ui.view({
+		// 	id:"idApp",
+		// 	viewName:"hckt.manifest.view.appView",
+		// 	type:sap.ui.core.mvc.ViewType.XML
+		// });
+		// sap.ui.getCore().attachInit(function(){
+		var comContainer = new sap.ui.core.ComponentContainer({
+			name:"hckt.manifest"
+		});
+		comContainer.placeAt("placeHolder");		
+		// });
+		// oAppView.placeAt("placeHolder");
+		// comContainer.placeAt("placeHolder");
+	</script>
+	</head>
+	<body class="sapUiBody">
+		<div id="placeHolder"></div>
+	</body>
+</html>

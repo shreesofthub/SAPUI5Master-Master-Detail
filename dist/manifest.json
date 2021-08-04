@@ -1,0 +1,113 @@
+{
+	"sap.app": {
+		"id": "hckt.manifest",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{xAppTitle}}",
+		"description": "{{xddsec}}",
+		"tags": {
+			"keywords": ["{{kw1}}", "{{kw2}}", "{{kw3}}"]
+		},
+		"ach": "FF"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal"],
+		"icons": {
+			"icon": "sap-icon://accelerated"
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.44",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.44"
+				},
+				"sap.m": {
+					"minVersion": "1.44"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.44"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/mockData/rawData.json",
+				"preload": false
+			},
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"rootView": {
+			"viewName": "hckt.manifest.view.appView",
+			"id": "idApp",
+			"type": "XML"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "hckt.manifest.view",
+				"controlId": "idSplitApp"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": ["List_product", "dummy"]
+			}, {
+				"pattern": "fruit/{productId}",
+				"name": "master_fruit",
+				"target": "fruitList"
+			},
+			{
+				"pattern":"detail/{type}/{productId}",
+				"name":"detail",
+				"target":"detail"
+			}],
+			"targets": {
+				"List_product": {
+					"viewId": "idMaster",
+					"viewName": "master",
+					"controlAggregation": "masterPages",
+					"viewLevel": 1
+				},
+				"dummy": {
+					"viewId": "idDummy",
+					"viewName": "empty",
+					"controlAggregation": "detailPages",
+					"viewLevel": 1
+				},
+				"fruitList":{
+					"viewId":"idMaster1",
+					"viewName":"master1",
+					"controlAggregation":"masterPages",
+					"viewLevel":2
+				},
+				"detail":{
+					"viewId":"idDetail",
+					"viewName":"detail",
+					"controlAggregation":"detailPages",
+					"viewLevel":3
+				}
+			}
+		}
+	},
+	"_version": "1.6.0"
+}

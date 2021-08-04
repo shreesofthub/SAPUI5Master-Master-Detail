@@ -1,0 +1,4 @@
+specVersion: '2.4'
+metadata:
+  name: ui527_dynamic_list_binding
+type: application

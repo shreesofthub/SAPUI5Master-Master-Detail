@@ -1,0 +1,22 @@
+<mvc:View controllerName="hckt.manifest.controller.master1" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page showNavButton="true" navButtonPress="onBack">
+		<subHeader>
+			<Toolbar>
+				<SearchField showRefreshButton="true" liveChange="onLiveSearch" search="onRefresh"></SearchField>
+			</Toolbar>
+		</subHeader>
+		<List id="idList" mode="SingleSelectMaster" selectionChange="onItemSelection">
+			<!--<ObjectListItem icon="{image}" intro="{benifit}" number="{price}"  numberUnit="{unit}" title="{name}">-->
+				
+			<!--</ObjectListItem>-->
+		</List>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://filter" press="onFilter"></Button>
+				<Button icon="sap-icon://sort" press="onSort"></Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
+<!--items="{/fruits}" -->

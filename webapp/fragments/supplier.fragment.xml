@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Table alternateRowColors="true" items="{/supplier}">
+        <columns>
+            <Column >
+                <Label text="Suppler Firm Name"></Label>
+            </Column>
+            <Column >
+                <Label text="owner Name"></Label>
+            </Column>
+            <Column >
+                <Label text="since From"></Label>
+            </Column>
+            <Column >
+                <Label text="Located at"></Label>
+            </Column>
+            <Column >
+                <Label text="Contact No"></Label>
+            </Column>
+        </columns>
+        <ColumnListItem>
+            <Text text="{name}"></Text>
+            <Text text="{owner}"></Text>
+            <Text text="{from}"></Text>
+            <Select selectedKey="{/city}">
+                <core:Item key="{name}" text="{state}"></core:Item>
+            </Select>
+            <Text text="{contactNo}"></Text>
+        </ColumnListItem>
+    </Table>
+</core:FragmentDefinition>

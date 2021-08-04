@@ -1,0 +1,17 @@
+{
+  "name": "ui527_dynamic_list_binding",
+  "version": "1.0.0",
+  "description": "Dynamic Aggregation Binding in List-2 Mater Pages and detail page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ui5 build -a --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
+    "deploy-config": "fiori add deploy-config"
+  },
+  "author": "Sridhar Bollabathula",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/approuter": "^10.5.1",
+    "@sap/html5-repo-mock": "^2.0.3"
+  }
+}

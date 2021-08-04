@@ -1,0 +1,5 @@
+<mvc:View controllerName="hckt.manifest.controller.appView" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<SplitApp id="idSplitApp">
+		
+	</SplitApp>
+</mvc:View>
