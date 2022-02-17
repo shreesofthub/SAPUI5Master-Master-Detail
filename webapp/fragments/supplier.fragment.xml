@@ -21,9 +21,9 @@
         <ColumnListItem>
             <Text text="{name}"></Text>
             <Text text="{owner}"></Text>
-            <Text text="{from}"></Text>
-            <Select selectedKey="{/city}">
-                <core:Item key="{name}" text="{state}"></core:Item>
+            <Text text="{since}"></Text>
+            <Select items="{/city}">
+                <core:Item text="{name}"></core:Item>
             </Select>
             <Text text="{contactNo}"></Text>
         </ColumnListItem>

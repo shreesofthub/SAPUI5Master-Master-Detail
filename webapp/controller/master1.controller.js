@@ -3,6 +3,7 @@ sap.ui.define(
     function (baseController) {
         return baseController.extend("hckt.manifest.controller.master1", {
             onInit: function () {
+                this.sortOrder = "true";
                 this.oRouter = this.getOwnerComponent().getRouter();
                 this.oRouter.attachRoutePatternMatched(this.bindElement, this);
             },
@@ -48,7 +49,7 @@ sap.ui.define(
             },
             onLiveSearch: function (oEvent) {
                 var sQuery = oEvent.getParameter("newValue");
-                this.getLiveSearch("name", sQuery, "idList1");
+                this.getLiveSearch("name", sQuery, "idList");
             },
             onRefresh: function (oEvent) {
                 var oRefresh = oEvent.getParameter("refreshButtonPressed");
@@ -56,13 +57,35 @@ sap.ui.define(
             },
             onFilter: function (event) {
                 var oMaster = this.getView().getParent().getParent().getMasterPages()[1];
-                this.getPopup("/filter", "{price}", "",oMaster);
+                this.getPopup("/filter", "{price}", "", oMaster);
 
             },
             onValueSelect_f4: function (event) {
                 var selItem = event.getParameter("selectedItem");
-                var sPath = selItem.getBindingContextPath();
-
+                var sPath = selItem.getBindingContextPath().concat("/price");
+                var oModel = this.getView().getModel();
+                var oSelectedFilterValue = oModel.getProperty(sPath);
+                if (oSelectedFilterValue === ">15") {
+                    var oFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.GT, 15);
+                } else if (oSelectedFilterValue === "<15") {
+                    var oFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.LT, 15);
+                } else if (oSelectedFilterValue === "=15") {
+                    var oFilter = new sap.ui.model.Filter("price", sap.ui.model.FilterOperator.EQ, 15);
+                }
+                var aFilter = [oFilter];
+                var oList = this.byId("idList");
+                oList.getBinding("items").filter(aFilter);
+            },
+            onSort: function () {
+                if (this.sortOrder === "true") {
+                    this.sortOrder = "false";
+                    var oSort = new sap.ui.model.Sorter("price", true);
+                } else {
+                    this.sortOrder = "true";
+                    var oSort = new sap.ui.model.Sorter("price", false);
+                }
+                var oList = this.byId("idList");
+                oList.getBinding("items").sort(oSort);
             }
         });
     });
